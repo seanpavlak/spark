@@ -2328,6 +2328,7 @@ class DataFrameWriter(OptionUtils):
         mode: Optional[str] = None,
         colspecs: Optional[str] = None,
         widths: Optional[str] = None,
+        header: Optional[Union[bool, str]] = None,
         nullValue: Optional[str] = None,
         dateFormat: Optional[str] = None,
         timestampFormat: Optional[str] = None,
@@ -2359,6 +2360,8 @@ class DataFrameWriter(OptionUtils):
             a comma-separated list of contiguous column widths, used instead of ``colspecs``
             when the columns have no gaps between them. Exactly one of ``colspecs`` and
             ``widths`` must be given.
+        header : bool or str, optional
+            writes out names of columns as the first line.
 
         Other Parameters
         ----------------
@@ -2380,6 +2383,7 @@ class DataFrameWriter(OptionUtils):
         self._set_opts(
             colspecs=colspecs,
             widths=widths,
+            header=header,
             nullValue=nullValue,
             dateFormat=dateFormat,
             timestampFormat=timestampFormat,
